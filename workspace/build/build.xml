@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+# Author	  : Yogesh Tyagi
+# Company 	  : HCL Technologies
+# Description : build file for PIX B2B (Automate the XBITS transactions)
+-->
+<project name="b2b" default="b2bBuild" basedir=".">
+	<property file="${ant.project.name}.properties" />
+	
+	<property name="b2bOutbound-jar.file" value="b2bOutbound.jar"/>
+	<property name="b2bInbound-jar.file" value="b2bInbound.jar"/>
+	
+	<property name="b2bVersionFile" value="b2bVersion"/>
+	<property name="b2bVersionNum" value="${b2b.version.num}"/>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<!-- =========================== Common Targets ================================ -->
+	<target name="clean">
+		<echo message = "Clear out class files and jars for clean build..."/>		
+		<delete dir="${classes.dir}" />
+		<delete file="${project.dir}/${b2bOutbound-jar.file}"/>
+		<delete file="${project.dir}/${b2bInbound-jar.file}"/>
+		<delete file="${project.dir}/${b2bVersionFile}" verbose="true"/>
+	</target>
+
+	<target name="init" depends="clean">		
+		<mkdir dir="${classes.dir}"/>
+		<tstamp/>
+		<property name="dist.file" value="${ant.project.name}_${DSTAMP}-${TSTAMP}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<echo message="Compiling changed source files..."/>		
+		<javac srcdir="${java.dir}"
+			destdir="${classes.dir}"
+			includes="com/**"
+			debug="${debug.flag}"
+			verbose="${verbose.flag}"
+			deprecation="${deprecation.flag}"
+			optimize="${optimize.flag}" >
+			<classpath refid="classpath" />
+		</javac>		
+	</target>
+	
+	<!-- =========================== Jar Targets ================================ -->	
+	<target name="B2B-JARS" depends="compile">		
+		<echo message="Building ${b2bOutbound-jar.file}..."/>
+		<jar destfile="${project.dir}/${b2bOutbound-jar.file}" compress="true" manifest="${b2bOutbound.META-INF.dir}/MANIFEST.MF" filesetmanifest="skip">
+			 <fileset dir="${classes.dir}">
+			 	<include name="com/pearson/pixb2b/ApplicationInstanceManager.class" />
+				<include name="com/pearson/pixb2b/B2BOutboundTransactions.class" />
+				<include name="com/pearson/pixb2b/vendor/OutboundVendo*.class" />
+				<include name="com/pearson/pixb2b/vendor/service/**" />
+				<include name="com/pearson/pixb2b/vendor/utils/**" />
+				<include name="com/pearson/pixb2b/vendor/transaction/shared/**" />
+				<include name="com/pearson/pixb2b/vendor/transaction/outbound/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/orderstatus/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/orderconfirmation/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/inventorystatus/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/inventorychange/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/deliverymessage/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/goodsreceipt/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/usage/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/asn/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/inbound/invoice/dto/**" />
+			 	<include name="com/pearson/pixb2b/global/**" />
+			</fileset>
+		</jar>
+
+		<echo message="Building ${b2bInbound-jar.file}..."/>
+		<jar destfile="${project.dir}/${b2bInbound-jar.file}" compress="true" manifest="${b2bInbound.META-INF.dir}/MANIFEST.MF" filesetmanifest="skip">
+			 <fileset dir="${classes.dir}">
+			 	<include name="com/pearson/pixb2b/ApplicationInstanceManager.class" />
+				<include name="com/pearson/pixb2b/B2BInboundTransactions.class" />				
+				<include name="com/pearson/pixb2b/vendor/InboundVendor*.class" />
+				<include name="com/pearson/pixb2b/vendor/service/**" />
+				<include name="com/pearson/pixb2b/vendor/utils/**" />
+				<include name="com/pearson/pixb2b/vendor/transaction/shared/**" />
+				<include name="com/pearson/pixb2b/vendor/transaction/inbound/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/outbound/purchaseorder/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/outbound/shipmentinstructions/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/outbound/bookspecification/dto/**" />
+			 	<include name="com/pearson/pixb2b/vendor/transaction/outbound/deliverymessage/dto/**" />
+			 	<include name="com/pearson/pixb2b/global/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- =========================== JaveDoc Target ============================== -->
+	<target name="B2B-JavaDoc" depends="">
+	 	<echo message="Creating B2B Java Docs..."/>
+	 	<delete dir="${javadocs.dir}" quiet="true"/>
+	 	<mkdir dir="${javadocs.dir}"/>
+	 	<javadoc 
+	 		packagenames="com.*"
+	 		destdir="${javadocs.dir}"
+	 		Author="true"
+	 		Package="true"
+	 		Use="true"
+	 		WindowTitle="B2B Class Documentation"
+	 		maxmemory="128m"
+	 		>
+		 	<sourcepath>
+		 		<pathelement location="${java.dir}"/>
+		 	</sourcepath>
+		 	<classpath refid="classpath"/>
+	 	</javadoc>
+	 </target>
+	
+	<!-- =========================== Build and Deploy Target ================================ -->
+	<target name="b2bBuild" depends="B2B-JARS">		
+		<propertyfile file="${project.dir}/${b2bVersionFile}">		
+			<entry key="APPLICATION_NAME" value="${ant.project.name}"/>
+			<entry key="SOFTWARE_VERSION" value="${b2bVersionNum}"/>
+		</propertyfile>
+		<!--antcall target="B2B-JavaDoc"/-->
+		<echo message="**** B2B BUILD FINISHED SUCCESSFULLY ****"/>		
+	</target>
+</project>

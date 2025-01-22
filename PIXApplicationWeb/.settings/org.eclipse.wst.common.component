@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="PIXApplicationWeb">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="releasetopixdto_PIX-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/releasetopixdto_PIX/releasetopixdto_PIX">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ooservice-ws-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ooservice-ws/ooservice-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pims-ws-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pims-ws/pims-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="PIXApplicationEJB-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/PIXApplicationEJB/PIXApplicationEJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="PIXApplicationWeb"/>
+        <property name="java-output-path" value="/PIXApplicationWeb/WebRoot/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

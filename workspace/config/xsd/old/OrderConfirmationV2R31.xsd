@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="v2r31_20081207">
+	<xs:annotation>
+		<xs:documentation> Copyright 2000 – 2009 papiNet G.I.E (“papiNet”), International Digital Enterprise Alliance, Inc. (“IDEAlliance”), and American Forest and Paper Association, Inc. (“AFandPA”), collectively “Copyright Owner”. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign.  For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.	</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+	<xs:element name="OrderConfirmation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderConfirmationHeader"/>
+				<xs:element ref="OrderConfirmationLineItem" maxOccurs="unbounded"/>
+				<xs:element ref="MonetaryAdjustment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OrderConfirmationSummary" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="OrderConfirmationStatusType" type="orderConfirmationStatusType" use="required"/>
+			<xs:attribute name="OrderType" type="orderConfirmationType"/>
+			<xs:attribute name="Reissued" type="yesNo" default="No"/>
+			<xs:attribute name="Language" type="languageType" default="eng"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderConfirmationHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderConfirmationNumber" minOccurs="0"/>
+				<xs:element ref="OrderConfirmationHeaderStatusTypeText" minOccurs="0"/>
+				<xs:element ref="OrderConfirmationIssuedDate"/>
+				<xs:element ref="TransactionHistoryNumber" minOccurs="0"/>
+				<xs:element ref="TransactionHistoryConfirmationNumber" minOccurs="0"/>
+				<xs:element ref="PurchaseOrderInformation" minOccurs="0"/>
+				<xs:element ref="OrderConfirmationReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BuyerParty"/>
+				<xs:element ref="BillToParty" minOccurs="0"/>
+				<xs:element ref="SupplierParty"/>
+				<xs:element ref="OtherParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SenderParty" minOccurs="0"/>
+				<xs:element ref="ReceiverParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ShipToCharacteristics"/>
+				<xs:element ref="TransportModeCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportVehicleCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportUnitCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportLoadingCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportUnloadingCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportOtherInstructions" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OtherDate" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="OrderConfirmationHeaderStatusType" type="orderConfirmationHeaderStatusType" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderConfirmationLineItem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderConfirmationLineItemNumber" minOccurs="0"/>
+				<xs:element ref="OrderConfirmationLineItemStatusTypeText" minOccurs="0"/>
+				<xs:element ref="PurchaseOrderLineItemNumber" minOccurs="0"/>
+				<xs:element ref="Product"/>
+				<xs:element ref="OrderConfirmationReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="PriceDetails" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="MonetaryAdjustment" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LineBaseAmount" minOccurs="0"/>
+				<xs:element ref="DeliveryDestination" minOccurs="0"/>
+				<xs:element ref="DeliveryOrigin" minOccurs="0"/>
+				<xs:element ref="MillProductionInformation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ProductionStatus" minOccurs="0"/>
+				<xs:element ref="Quantity" minOccurs="0"/>
+				<xs:element ref="InformationalQuantity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OtherDate" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:choice minOccurs="0">
+					<xs:element ref="ShipToCharacteristics"/>
+					<xs:element ref="ShipmentMethodOfPayment"/>
+				</xs:choice>
+				<xs:element ref="OtherParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransportModeCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportVehicleCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportUnitCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportLoadingCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportUnloadingCharacteristics" minOccurs="0"/>
+				<xs:element ref="TransportOtherInstructions" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="DeliverySchedule" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="GeneralLedgerAccount" minOccurs="0"/>
+				<xs:element ref="EndUses" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SafetyAndEnvironmentalInformation" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="OrderConfirmationLineItemStatusType" type="orderConfirmationLineItemStatusType" use="required"/>
+			<xs:attribute name="OrderConfirmationLineItemDocumentStatus" type="documentStatusType.OrderConfirmation"/>
+			<xs:attribute name="Billable" type="yesNo"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderConfirmationSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TotalNumberOfLineItems" minOccurs="0"/>
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="TotalQuantity"/>
+					<xs:element ref="TotalInformationalQuantity" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:element ref="LineItemSubTotal" minOccurs="0"/>
+				<xs:element ref="TotalAdjustments" minOccurs="0"/>
+				<xs:element ref="TotalTaxAmount" minOccurs="0"/>
+				<xs:element ref="TotalNetAmount" minOccurs="0"/>
+				<xs:element ref="TotalAmount" minOccurs="0"/>
+				<xs:element ref="InformationalAmount" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="TermsOfPayment"/>
+					<xs:element ref="TotalNetOfTermsDiscount" minOccurs="0"/>
+				</xs:sequence>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TermsAndDisclaimers" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

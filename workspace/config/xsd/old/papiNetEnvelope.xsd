@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.papinet.org/env/v1r00" xmlns:pne="http://www.papinet.org/env/v1r00" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.papinet.org/env/v1r00" elementFormDefault="qualified" attributeFormDefault="unqualified" version="env_v1r00_20081107">
+	<xs:annotation>
+		<xs:documentation>Copyright 2000-2008  papiNet G.I.E (papiNet), International Digital Enterprise Alliance, Inc. (IDEAlliance), and American Forest and Paper Association, Inc. (AFPA), collectively Copyright Owner. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign.  For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="papiNetEnvelope">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PayloadInfo"/>
+				<xs:element ref="Payload"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--=============================-->
+	<xs:element name="Attachment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any/>
+			</xs:sequence>
+			<xs:attribute name="AttachmentIdentifier" type="s255"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BusinessDocument">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:any processContents="strict"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BusinessSender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PartyIdentifier" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BusinessReceiver">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PartyIdentifier" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Date">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Year"/>
+				<xs:element ref="Month"/>
+				<xs:element ref="Day"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Day" type="dayType"/>
+	<xs:element name="Document">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DocumentNumber"/>
+				<xs:element ref="DocumentDate"/>
+				<xs:element ref="DocumentHistoryNumber" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="DocumentName" type="documentName" use="required"/>
+			<xs:attribute name="DocumentType" type="documentType" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DocumentDate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Date"/>
+				<xs:element ref="Time" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DocumentHistoryNumber" type="nni9"/>
+	<xs:element name="DocumentNumber" type="s30"/>
+	<xs:element name="ID" nillable="false">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Month" type="monthType"/>
+	<xs:element name="NumberOfAttachments" type="nni3"/>
+	<xs:element name="PartyIdentifier">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="s60">
+					<xs:attribute name="PartyIdentifierType" type="partyIdentifierType" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Payload">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="BusinessDocument"/>
+				<xs:element ref="Attachment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PayloadInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TransmissionInfo" maxOccurs="unbounded"/>
+				<xs:element ref="BusinessSender"/>
+				<xs:element ref="BusinessReceiver"/>
+				<xs:element ref="Document"/>
+				<xs:element ref="NumberOfAttachments"/>
+				<xs:element ref="Schema"/>
+				<xs:element ref="Signature" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="TestFlag" type="xs:boolean" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Schema">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="Version" type="s30" use="required"/>
+					<xs:attribute name="Build" type="s30"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SequenceNumber" type="xs:nonNegativeInteger"/>
+	<xs:element name="Signature">
+		<xs:complexType>
+			<xs:sequence minOccurs="0">
+				<xs:any namespace="http://www.w3.org/2000/09/xmldsig#" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Time" type="xs:time"/>
+	<xs:element name="TimeStamp" type="xs:dateTime"/>
+	<xs:element name="TransmissionInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SequenceNumber"/>
+				<xs:element ref="ID"/>
+				<xs:element ref="TimeStamp"/>
+				<xs:element ref="TransmissionSender"/>
+				<xs:element ref="TransmissionReceiver"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TransmissionSender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PartyIdentifier" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TransmissionReceiver">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PartyIdentifier" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Year" type="xs:gYear"/>
+	<xs:simpleType name="dayType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="31"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="documentName">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Availability"/>
+			<xs:enumeration value="BookSpecification"/>
+			<xs:enumeration value="BusinessAcceptance"/>
+			<xs:enumeration value="BusinessAcknowledgement"/>
+			<xs:enumeration value="Calendar"/>
+			<xs:enumeration value="CallOff"/>
+			<xs:enumeration value="CallOffWood"/>
+			<xs:enumeration value="Complaint"/>
+			<xs:enumeration value="ComplaintResponse"/>
+			<xs:enumeration value="CreditDebitNote"/>
+			<xs:enumeration value="DeliveryInstruction"/>
+			<xs:enumeration value="DeliveryMessage"/>
+			<xs:enumeration value="DeliveryMessageBook"/>
+			<xs:enumeration value="DeliveryMessageWood"/>
+			<xs:enumeration value="GoodsReceipt"/>
+			<xs:enumeration value="InfoRequest"/>
+			<xs:enumeration value="InventoryChange"/>
+			<xs:enumeration value="InventoryDispositionInstructions"/>
+			<xs:enumeration value="InventoryStatus"/>
+			<xs:enumeration value="Invoice"/>
+			<xs:enumeration value="InvoiceWood"/>
+			<xs:enumeration value="LoadTender"/>
+			<xs:enumeration value="LoadTenderResponse"/>
+			<xs:enumeration value="OrderConfirmation"/>
+			<xs:enumeration value="OrderConfirmationWood"/>
+			<xs:enumeration value="OrderStatus"/>
+			<xs:enumeration value="PackingList"/>
+			<xs:enumeration value="Planning"/>
+			<xs:enumeration value="ProductAttributes"/>
+			<xs:enumeration value="ProductPerformance"/>
+			<xs:enumeration value="ProductQuality"/>
+			<xs:enumeration value="PurchaseOrder"/>
+			<xs:enumeration value="PurchaseOrderWood"/>
+			<xs:enumeration value="RFQ"/>
+			<xs:enumeration value="RFQResponse"/>
+			<xs:enumeration value="ScaleTicket"/>
+			<xs:enumeration value="ShipmentStatus"/>
+			<xs:enumeration value="ShippingInstructions"/>
+			<xs:enumeration value="Statement"/>
+			<xs:enumeration value="Usage"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="documentType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Agreement"/>
+			<xs:enumeration value="Approximate"/>
+			<xs:enumeration value="AvailabilityStatus"/>
+			<xs:enumeration value="BlanketOrder"/>
+			<xs:enumeration value="Booking"/>
+			<xs:enumeration value="BookingConfirmation"/>
+			<xs:enumeration value="CallOff"/>
+			<xs:enumeration value="CallOffConfirmation"/>
+			<xs:enumeration value="Claim"/>
+			<xs:enumeration value="Complaint"/>
+			<xs:enumeration value="ConfirmingOrder"/>
+			<xs:enumeration value="ConsumptionOrder"/>
+			<xs:enumeration value="CreditNote"/>
+			<xs:enumeration value="DebitNote"/>
+			<xs:enumeration value="DeliveryInstruction"/>
+			<xs:enumeration value="DeliveryMessage"/>
+			<xs:enumeration value="Duplicate"/>
+			<xs:enumeration value="Feedback"/>
+			<xs:enumeration value="InitialShipmentAdvice"/>
+			<xs:enumeration value="InventoryChange"/>
+			<xs:enumeration value="InventoryStatus"/>
+			<xs:enumeration value="Invoice"/>
+			<xs:enumeration value="LoadAvailable"/>
+			<xs:enumeration value="LoadAvailableConfirmation"/>
+			<xs:enumeration value="LoadedSpecification"/>
+			<xs:enumeration value="LoadingInstruction"/>
+			<xs:enumeration value="LoadingOrder"/>
+			<xs:enumeration value="LoadingSchedule"/>
+			<xs:enumeration value="LoadTender"/>
+			<xs:enumeration value="LoadTenderResponse"/>
+			<xs:enumeration value="OfficeSchedule"/>
+			<xs:enumeration value="OrderStatus"/>
+			<xs:enumeration value="PreBooking"/>
+			<xs:enumeration value="PreBookingConfirmation"/>
+			<xs:enumeration value="PrePayment"/>
+			<xs:enumeration value="PackingSpecification"/>
+			<xs:enumeration value="PriceList"/>
+			<xs:enumeration value="ProductCrossReference"/>
+			<xs:enumeration value="ProductProperties"/>
+			<xs:enumeration value="ProForma"/>
+			<xs:enumeration value="ReleaseOrder"/>
+			<xs:enumeration value="ReservationOrder"/>
+			<xs:enumeration value="SelfBillingStatement"/>
+			<xs:enumeration value="ShipmentAdvice"/>
+			<xs:enumeration value="ShippingInstructionsConfirmation"/>
+			<xs:enumeration value="ShippingInstructionsPackaging"/>
+			<xs:enumeration value="ShippingInstructionsRouting"/>
+			<xs:enumeration value="SpecOrder"/>
+			<xs:enumeration value="StandardOrder"/>
+			<xs:enumeration value="SpecRFQ"/>
+			<xs:enumeration value="StandardRFQ"/>
+			<xs:enumeration value="SupplierSpec"/>
+			<xs:enumeration value="SupportSchedule"/>
+			<xs:enumeration value="TrialOrder"/>
+			<xs:enumeration value="UnloadingSchedule"/>
+			<xs:enumeration value="Waybill"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="monthType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="12"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="nni3">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="nni9">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:totalDigits value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="partyIdentifierType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DunsNumber"/>
+			<xs:enumeration value="Duns4Number"/>
+			<xs:enumeration value="GlobalLocationNumber"/>
+			<xs:enumeration value="papiNetGlobalPartyIdentifier"/>
+			<xs:enumeration value="StandardAddressNumber"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="s30">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="1"/>
+			<xs:whiteSpace value="preserve"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="s60">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60"/>
+			<xs:minLength value="1"/>
+			<xs:whiteSpace value="preserve"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="s255">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+			<xs:minLength value="1"/>
+			<xs:whiteSpace value="preserve"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

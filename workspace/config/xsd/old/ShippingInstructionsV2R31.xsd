@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="v2r31_20081207">
+	<xs:annotation>
+		<xs:documentation>Copyright 2000-2009  papiNet G.I.E (papiNet), International Digital Enterprise Alliance, Inc. (IDEAlliance), and American Forest and Paper Association, Inc. (AFPA), collectively Copyright Owner. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign.  For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+	<xs:element name="ShippingInstructions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ShippingInstructionsHeader"/>
+				<xs:choice>
+					<xs:element ref="ByProduct"/>
+					<xs:element ref="ByShipTo"/>
+				</xs:choice>
+				<xs:element ref="ShippingInstructionsSummary" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="ShippingInstructionsType" type="shippingInstructionsType" use="required"/>
+			<xs:attribute name="ShippingInstructionsStatusType" type="shippingInstructionsStatusType" use="required"/>
+			<xs:attribute name="IsThirdPartyAdvice" type="yesNo"/>
+			<xs:attribute name="Reissued" type="yesNo" default="No"/>
+			<xs:attribute name="Language" type="languageType" default="eng"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShippingInstructionsHeader" type="shippingInstructionsHeader"/>
+	<xs:element name="ByProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="Product"/>
+					<xs:element ref="ShippingInstructionsPurchaseOrderLineItem"/>
+				</xs:choice>
+				<xs:element ref="ShippingInstructionsLineItemByProduct" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShippingInstructionsLineItemByProduct" type="shippingInstructionsLineItemByProduct"/>
+	<xs:element name="ByShipTo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ShipToCharacteristics"/>
+				<xs:element ref="DeliveryDateWindow" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TransportInformation" minOccurs="0"/>
+				<xs:element ref="ShippingInstructionsLineItemByShipTo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ShippingInstructionsLineItemByShipTo" type="shippingInstructionsLineItemByShipTo"/>
+	<xs:element name="ShippingInstructionsSummary" type="shippingInstructionsSummary"/>
+</xs:schema>

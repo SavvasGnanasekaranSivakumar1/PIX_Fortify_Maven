@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enterprise-project
+  version="1.0.0"
+  name="PIXApplication"
+  id="myeclipse.1292230450493"
+  j2ee-spec="1.5"
+  archive="PIXApplication.ear">
+  <project-modules>
+    <project-module
+      type="WEB"
+      name="PIXApplicationWeb"
+      id="myeclipse.1292225121522"
+      context-root="/PIXApplicationWeb"
+      j2ee-spec="1.5"
+      archive="PIXApplicationWeb.war">
+      <attributes>
+        <attribute name="webrootdir" value="WebRoot" />
+      </attributes>
+    </project-module>
+    <project-module
+      type="EJB"
+      name="PIXApplicationEJB"
+      id="myeclipse.1292225074786"
+      j2ee-spec="1.5"
+      archive="PIXApplicationEJB.jar" />
+  </project-modules>
+</enterprise-project>
+

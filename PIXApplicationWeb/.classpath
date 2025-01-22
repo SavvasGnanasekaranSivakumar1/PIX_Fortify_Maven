@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/PIXApplicationEJB"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/antlr.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/axis.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/batik-awt-util-1.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/batik-dom-1.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/batik-svggen-1.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/batik-util-1.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/batik-xml-1.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/castor-1.1-examples.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/castor-1.1-xml.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/castor-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cewolf-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/classes12.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-digester.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-httpclient-3.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-1.3.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-validator.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dom4j-1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itext-1.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta-oro.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jakarta.persistence-api-2.2.3.redhat-00001.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javawebparts-core-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.ejb-3.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.transaction.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-ejb-client-4.0.37.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-jsp-api_2.3_spec-2.0.0.Final-redhat-00001.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-servlet-api_4.0_spec-2.0.0.Final-redhat-00001.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jboss-transaction-api_1.3_spec-2.0.0.Final-redhat-00002.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jbossjta-integration-4.16.6.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcommon-1.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jconn3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-20080701.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsr173_api-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jta.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-api-2.17.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-core-2.17.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-web-2.17.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ooservice-ws.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/pims-ws.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-3.0.2-FINAL-20080204.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi2.5.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/releasetopixdto_PIX.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts-el.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts-legacy.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/toplink.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/wsdl4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/wstx-asl-3.2.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xerces.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-aegis-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-annotations-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-core-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-java5-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-jaxws-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-jsr181-api-1.0-M1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xfire-spring-1.2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlparserv2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/430861/Jboss-Server/PIX--Pearson-Implementation-of-XBITS-/PixReleaseService/WebContent/WEB-INF/lib/fileupload-ext.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/fileupload-ext.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss EAP 7.0 Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

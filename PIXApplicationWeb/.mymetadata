@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="PIXApplicationWeb"
+  id="myeclipse.1292225121522"
+  context-root="/PIXApplicationWeb"
+  j2ee-spec="1.4"
+  archive="PIXApplicationWeb.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

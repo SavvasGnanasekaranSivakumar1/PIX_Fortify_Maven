@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="v2r31_20081207">
+	<xs:annotation>
+		<xs:documentation> Copyright 2000 – 2009 papiNet G.I.E (“papiNet”), International Digital Enterprise Alliance, Inc. (“IDEAlliance”), and American Forest and Paper Association, Inc. (“AFandPA”), collectively “Copyright Owner”. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign. For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.	</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+	<xs:element name="BookSpecification">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SpecGeneral"/>
+				<xs:element ref="SpecComponent" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SpecAssembly" minOccurs="0"/>
+				<xs:element ref="SpecBinding" minOccurs="0"/>
+				<xs:element ref="SpecPacking" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="SpecType" type="bookSpecificationType"/>
+			<xs:attribute name="SpecStatusType" type="bookSpecificationStatusType"/>
+			<xs:attribute name="NASTA" type="yesNo" default="No"/>
+			<xs:attribute name="Secure" type="yesNo" default="No"/>
+			<xs:attribute name="Reissued" type="yesNo"/>
+			<xs:attribute name="Language" type="languageType" default="eng"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecGeneral">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SpecInformation"/>
+				<xs:element ref="TransactionHistoryNumber" minOccurs="0"/>
+				<xs:element ref="SenderParty"/>
+				<xs:element ref="ReceiverParty"/>
+				<xs:element ref="OtherParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="TrimSize" minOccurs="0"/>
+				<xs:element ref="TotalPageCount" minOccurs="0"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecComponent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductIdentifier"/>
+				<xs:element ref="ProductDescription" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:sequence maxOccurs="unbounded">
+					<xs:element ref="Classification"/>
+					<xs:element ref="SubClassification" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:element ref="BookClassification" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="NumberPerProduct" minOccurs="0"/>
+				<xs:element ref="PlacementInOrderOfMatter" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="FinishedSize" minOccurs="0"/>
+				<xs:element ref="SuppliedComponentFinishSpecs" minOccurs="0"/>
+				<xs:choice minOccurs="0">
+					<xs:element ref="PressComponent"/>
+					<xs:element ref="NonPressComponent"/>
+				</xs:choice>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SpecReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SafetyAndEnvironmentalInformation" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecPacking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductIdentifier"/>
+				<xs:element ref="ProductDescription" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BookUnitPacking" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BoxCharacteristics" minOccurs="0"/>
+				<xs:element ref="PalletPackagingCharacteristics" minOccurs="0"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="IsBoxed" type="isBoxed"/>
+			<xs:attribute name="IsPalletized" type="isPalletized"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecAssembly">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductIdentifier"/>
+				<xs:element ref="ProductDescription" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BillOfMaterials" minOccurs="0"/>
+				<xs:element ref="Height" minOccurs="0"/>
+				<xs:element ref="Length" minOccurs="0"/>
+				<xs:element ref="Width" minOccurs="0"/>
+				<xs:element ref="AssemblyInstructions" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SpecBinding">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ProductIdentifier"/>
+				<xs:element ref="ProductDescription" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="BookBlock"/>
+				<xs:element ref="EndsheetInformation" minOccurs="0" maxOccurs="2"/>
+				<xs:element ref="BindingExtras" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="HolePunchInformation" minOccurs="0"/>
+				<xs:element ref="Case" minOccurs="0"/>
+				<xs:element ref="MechanicalMaterial" minOccurs="0"/>
+				<xs:element ref="Ribbon" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Perforation" minOccurs="0"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="BindingType" type="bindingType"/>
+			<xs:attribute name="BindingStyleType" type="bindingStyleType"/>
+			<xs:attribute name="BindingCoverScoring" type="yesNo"/>
+			<xs:attribute name="BindingReinforcement" type="yesNo"/>
+			<xs:attribute name="BindingBackStyleType" type="bindingBackStyleType"/>
+			<xs:attribute name="BindingRibbon" type="yesNo"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

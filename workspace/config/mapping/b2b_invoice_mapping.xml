@@ -1,0 +1,827 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+ "http://castor.org/mapping.dtd">
+<!--
+# Author	  : Abhilasha Nigam
+# Company 	  : HCL Technologies
+# Description : castor mapping file for PIX B2B Invoice XML
+-->
+<mapping>
+	<description>Invoice XML mapping</description>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PapiNetEnvelopeDTO">
+		<map-to xml="papiNetEnvelope" ns-uri="http://www.papinet.org/env/v1r00" ns-prefix="pne"/>	
+		<field name="payloadInfo" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PayloadInfo">
+			<bind-xml name="PayloadInfo" node="element"/>
+		</field>
+		<field name="payload" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Payload">
+			<bind-xml name="Payload" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PayloadInfo">
+		<map-to xml="PayloadInfo" ns-prefix="pne"/>	
+		<field name="testFlag" type="java.lang.String">
+			<bind-xml name="TestFlag" node="attribute"/>
+	    </field>
+		<field name="transmissionInfoList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionInfo">
+			<bind-xml name="TransmissionInfo" node="element"/>
+	    </field>
+		<field name="businessSender" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSender">
+			<bind-xml name="BusinessSender" node="element"/>
+	    </field>
+		<field name="businessReceiver" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiver">
+			<bind-xml name="BusinessReceiver" node="element"/>
+	    </field>
+		<field name="document" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Document">
+			<bind-xml name="Document" node="element"/>
+	    </field>
+		<field name="noOfAttachments" type="java.lang.String">
+			<bind-xml name="pne:NumberOfAttachments" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="schema" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Schema">
+			<bind-xml name="pne:Schema" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionInfo">
+		<map-to xml="TransmissionInfo" ns-prefix="pne"/>	
+        <field name="sequenceNumber" type="java.lang.String">
+			<bind-xml name="pne:SequenceNumber" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+        <field name="id" type="java.lang.String">
+			<bind-xml name="pne:ID" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+		<field name="timeStamp" type="java.lang.String">
+			<bind-xml name="pne:TimeStamp" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+		<field name="transmissionSender" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSender">
+			<bind-xml name="TransmissionSender" node="element"/>
+	    </field>
+		<field name="transmissionReceiver" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiver">
+			<bind-xml name="TransmissionReceiver" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSender">
+		<map-to xml="TransmissionSender" ns-prefix="pne"/>	
+		<field name="pIdTransmissionSenderList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSenderPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSenderPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiver">
+		<map-to xml="TransmissionReceiver" ns-prefix="pne"/>	
+		<field name="pIdTransmissionReceiverList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiverPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiverPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSender">
+		<map-to xml="BusinessSender" ns-prefix="pne"/>	
+		<field name="pIdBusinessSenderList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSenderPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSenderPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiver">
+		<map-to xml="BusinessReceiver" ns-prefix="pne"/>	
+		<field name="pIdBusinessReceiverList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiverPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiverPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Document">
+		<map-to xml="Document" ns-prefix="pne"/>	
+		<field name="documentName" type="java.lang.String">
+			<bind-xml name="DocumentName" node="attribute"/>
+	    </field>
+		<field name="documentNumber" type="java.lang.String">
+			<bind-xml name="pne:DocumentNumber" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="documentDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DocumentDate">
+			<bind-xml name="pne:DocumentDate" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DocumentDate">
+		<map-to xml="DocumentDate" ns-prefix="pne"/>	
+		<field name="date" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DateEnvelope">
+			<bind-xml name="Date" node="element"/>
+	    </field>
+		<field name="time" type="java.lang.String">
+			<bind-xml name="pne:Time" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DateEnvelope">
+		<map-to xml="Date" ns-prefix="pne"/>	
+		<field name="year" type="java.lang.String">
+			<bind-xml name="pne:Year" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="month" type="java.lang.String">
+			<bind-xml name="pne:Month" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="day" type="java.lang.String">
+			<bind-xml name="pne:Day" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Schema">
+		<map-to xml="Schema" ns-prefix="pne"/>	
+        <field name="version" type="java.lang.String">
+			<bind-xml name="Version" node="attribute"/>
+		</field>
+        <field name="build" type="java.lang.String">
+			<bind-xml name="Build" node="attribute"/>
+		</field>
+		<field name="schemaVal" type="java.lang.String">
+			<bind-xml name="Schema" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Payload">
+		<map-to xml="Payload" ns-prefix="pne"/>	
+        <field name="businessDocument" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessDocument">
+			<bind-xml name="BusinessDocument" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessDocument">
+		<map-to xml="BusinessDocument" ns-prefix="pne"/>	
+        <field name="invoDTO" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceDTO">
+			<bind-xml name="Invoice" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceDTO">
+		<map-to xml="Invoice"/>
+        <field name="invoiceType" type="java.lang.String">
+			<bind-xml name="InvoiceType" node="attribute"/>
+		</field>
+		<field name="reissued" type="java.lang.String">
+			<bind-xml name="Reissued" node="attribute"/>
+		</field>		
+        <field name="invHeader" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceHeader">
+			<bind-xml name="InvoiceHeader" node="element"/>
+	    </field> 
+		<field name="invoiceLineItem" collection="collection" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceLineItem">
+			<bind-xml name="InvoiceLineItem" node="element"/>
+		</field>  
+		<field name="invSummary" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceSummary">
+			<bind-xml name="InvoiceSummary" node="element"/>
+		</field> 
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceHeader">
+		<map-to xml="InvoiceHeader"/>		
+		<field name="invNumber" type="java.lang.String">
+			<bind-xml name="InvoiceNumber" node="element"/>
+		</field>
+		<field name="invoiceDate" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceDate">
+			<bind-xml name="InvoiceDate" node="element"/>
+		</field> 
+		<field name="invRef" collection="collection" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceRef">
+			<bind-xml name="InvoiceReference" node="element"/>
+		</field>		
+		<field name="billToParty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.BillToParty">
+			<bind-xml name="BillToParty" node="element"/>
+		</field>
+		<field name="suppParty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.SupplierParty">
+			<bind-xml name="SupplierParty" node="element"/>
+		</field>
+		<field name="buyerParty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.BuyerParty">
+			<bind-xml name="BuyerParty" node="element"/>
+		</field>
+		<field name="remitParty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.RemitToParty">
+			<bind-xml name="RemitToParty" node="element"/>
+		</field>	
+		<field name="headerComments" collection="collection" type="java.lang.String">
+			<bind-xml name="AdditionalText" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceDate">
+		<map-to xml="InvoiceDate"/>
+		<field name="invDate" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.Date">
+			<bind-xml name="Date" node="element"/>
+		</field>		
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.Date">
+		<map-to xml="Date"/>
+		<field name="year" type="java.lang.String">
+			<bind-xml name="Year" node="element"/>
+		</field>
+		<field name="month" type="java.lang.String">
+			<bind-xml name="Month" node="element"/>
+		</field>
+		<field name="day" type="java.lang.String">
+			<bind-xml name="Day" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceRef">
+	    <map-to xml="InvoiceReference"/>
+		<field name="invRefType" type="java.lang.String">
+			<bind-xml name="InvoiceReferenceType" node="attribute"/>
+		</field>
+		<field name="invRefValue" type="java.lang.String">
+			<bind-xml name="InvoiceReferenceValue" node="text"/>
+		</field>
+    </class>
+    <class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.BillToParty">
+        <map-to xml="BillToParty"/>
+		<field name="logisticsRole" type="java.lang.String">
+			<bind-xml name="LogisticsRole" node="attribute"/>
+		</field>
+		<field name="billPartyIdList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyPartyIdentifier">
+			<bind-xml name="PartyIdentifier" node="element"/>
+		</field>
+		<field name="billNameAddr" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyNameAddress">
+			<bind-xml name="NameAddress" node="element"/>
+		</field>	
+		<field name="billContactList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyCommonContact">
+			<bind-xml name="CommonContact" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyPartyIdentifier">
+        <map-to xml="PartyIdentifier"/>
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+		</field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifierValue" node="text"/>
+		</field>  
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyNameAddress">
+        <map-to xml="NameAddress"/>
+		<field name="name1" type="java.lang.String">
+          <bind-xml name="Name1" node="element"/>
+		</field>
+		<field name="address1" type="java.lang.String">
+          <bind-xml name="Address1" node="element"/>
+		</field>
+		<field name="city" type="java.lang.String">
+          <bind-xml name="City" node="element"/>
+		</field>
+       <field name="stateOrProvince" type="java.lang.String">
+          <bind-xml name="StateOrProvince" node="element"/>
+		</field>
+		<field name="postalCode" type="java.lang.String">
+          <bind-xml name="PostalCode" node="element"/>
+		</field>
+		<field name="country" type="java.lang.String">
+          <bind-xml name="Country" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BillToPartyCommonContact">
+        <map-to xml="CommonContact"/>
+		<field name="contactType" type="java.lang.String">
+			<bind-xml name="ContactType" node="attribute"/>
+		</field>
+		<field name="contactName" type="java.lang.String">
+          <bind-xml name="ContactName" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.SupplierParty">
+		<map-to xml="SupplierParty"/>		
+		<field name="suppPartyIdList"  collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyPartyIdentifier">
+			<bind-xml name="PartyIdentifier" node="element"/>
+		</field>
+		<field name="suppNameAddr" type="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyNameAddress">
+			<bind-xml name="NameAddress" node="element"/>
+		</field>	
+		<field name="suppContactList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyCommonContact">
+			<bind-xml name="CommonContact" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyPartyIdentifier">
+        <map-to xml="PartyIdentifier"/>
+		<field name="agency" type="java.lang.String">
+			<bind-xml name="Agency" node="attribute"/>
+		</field>  
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+		</field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifierValue" node="text"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyNameAddress">
+        <map-to xml="NameAddress"/>
+		<field name="name1" type="java.lang.String">
+          <bind-xml name="Name1" node="element"/>
+		</field>
+		<field name="name2" type="java.lang.String">
+          <bind-xml name="Name2" node="element"/>
+		</field>
+		<field name="name3" type="java.lang.String">
+          <bind-xml name="Name3" node="element"/>
+		</field>
+		<field name="address1" type="java.lang.String">
+          <bind-xml name="Address1" node="element"/>
+		</field>
+		<field name="address2" type="java.lang.String">
+          <bind-xml name="Address2" node="element"/>
+		</field>
+		<field name="address3" type="java.lang.String">
+          <bind-xml name="Address3" node="element"/>
+		</field>
+		<field name="address4" type="java.lang.String">
+          <bind-xml name="Address4" node="element"/>
+		</field>
+		<field name="city" type="java.lang.String">
+          <bind-xml name="City" node="element"/>
+		</field>
+       <field name="stateOrProvince" type="java.lang.String">
+          <bind-xml name="StateOrProvince" node="element"/>
+		</field>
+		<field name="postalCode" type="java.lang.String">
+          <bind-xml name="PostalCode" node="element"/>
+		</field>
+		<field name="country" type="java.lang.String">
+          <bind-xml name="Country" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.SupplierPartyCommonContact">
+        <map-to xml="CommonContact"/>
+		<field name="contactType" type="java.lang.String">
+			<bind-xml name="ContactType" node="attribute"/>
+		</field>
+		<field name="contactName" type="java.lang.String">
+          <bind-xml name="ContactName" node="element"/>
+		</field>	
+		  <field name="phone" type="java.lang.String">
+          <bind-xml name="Telephone" node="element"/>
+		</field>
+		<field name="mobile" type="java.lang.String">
+          <bind-xml name="Mobile" node="element"/>
+		</field>
+		<field name="email" type="java.lang.String">
+          <bind-xml name="Email" node="element"/>
+		</field> 		
+		<field name="fax" type="java.lang.String">
+          <bind-xml name="Fax" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.BuyerParty">
+        <map-to xml="BuyerParty"/>
+		<field name="partyIdentifierList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyPartyIdentifier">
+			<bind-xml name="PartyIdentifier" node="element"/>
+		</field>
+		<field name="nameAddress" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyNameAddress">
+			<bind-xml name="NameAddress" node="element"/>
+		</field>
+		<field name="commonContactList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyCommonContact">
+			<bind-xml name="CommonContact" node="element"/>
+		</field>
+	</class>  
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyPartyIdentifier">
+        <map-to xml="PartyIdentifier"/>
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+		</field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifierValue" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyNameAddress">
+        <map-to xml="NameAddress"/>
+		<field name="name1" type="java.lang.String">
+          <bind-xml name="Name1" node="element"/>
+		</field>
+		<field name="name2" type="java.lang.String">
+          <bind-xml name="Name2" node="element"/>
+		</field>
+		<field name="name3" type="java.lang.String">
+          <bind-xml name="Name3" node="element"/>
+		</field>
+		<field name="address1" type="java.lang.String">
+          <bind-xml name="Address1" node="element"/>
+		</field>
+		<field name="address2" type="java.lang.String">
+          <bind-xml name="Address2" node="element"/>
+		</field>
+		<field name="address3" type="java.lang.String">
+          <bind-xml name="Address3" node="element"/>
+		</field>
+		<field name="address4" type="java.lang.String">
+          <bind-xml name="Address4" node="element"/>
+		</field>
+		<field name="city" type="java.lang.String">
+          <bind-xml name="City" node="element"/>
+		</field>
+       <field name="stateOrProvince" type="java.lang.String">
+          <bind-xml name="StateOrProvince" node="element"/>
+		</field>
+		<field name="postalCode" type="java.lang.String">
+          <bind-xml name="PostalCode" node="element"/>
+		</field>
+		<field name="country" type="java.lang.String">
+          <bind-xml name="Country" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.BuyerPartyCommonContact">
+        <map-to xml="CommonContact"/>
+		<field name="contactType" type="java.lang.String">
+			<bind-xml name="ContactType" node="attribute"/>
+		</field>
+		<field name="contactName" type="java.lang.String">
+          <bind-xml name="ContactName" node="element"/>
+		</field>
+		<field name="phone" type="java.lang.String">
+          <bind-xml name="Telephone" node="element"/>
+		</field>
+		<field name="mobile" type="java.lang.String">
+          <bind-xml name="MobilePhone" node="element"/>
+		</field>
+		<field name="email" type="java.lang.String">
+          <bind-xml name="Email" node="element"/>
+		</field>  
+		<field name="fax" type="java.lang.String">
+          <bind-xml name="Fax" node="element"/>
+		</field>  
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.RemitToParty">
+        <map-to xml="RemitToParty"/>
+		<field name="remitPartyIdList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.PartyIdentifier">
+			<bind-xml name="PartyIdentifier" node="element"/>
+		</field>
+		<field name="remitNameAddr" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.NameAddress">
+			<bind-xml name="NameAddress" node="element"/>
+		</field>
+		<field name="remitContactList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CommonContact">
+			<bind-xml name="CommonContact" node="element"/>
+		</field>
+	</class>  
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.PartyIdentifier">
+        <map-to xml="PartyIdentifier"/>
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+		</field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifierValue" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.NameAddress">
+        <map-to xml="NameAddress"/>
+		<field name="name1" type="java.lang.String">
+          <bind-xml name="Name1" node="element"/>
+		</field>
+		<field name="name2" type="java.lang.String">
+          <bind-xml name="Name2" node="element"/>
+		</field>
+		<field name="name3" type="java.lang.String">
+          <bind-xml name="Name3" node="element"/>
+		</field>
+		<field name="address1" type="java.lang.String">
+          <bind-xml name="Address1" node="element"/>
+		</field>
+		<field name="address2" type="java.lang.String">
+          <bind-xml name="Address2" node="element"/>
+		</field>
+		<field name="address3" type="java.lang.String">
+          <bind-xml name="Address3" node="element"/>
+		</field>
+		<field name="address4" type="java.lang.String">
+          <bind-xml name="Address4" node="element"/>
+		</field>
+		<field name="city" type="java.lang.String">
+          <bind-xml name="City" node="element"/>
+		</field>
+       <field name="stateOrProvince" type="java.lang.String">
+          <bind-xml name="StateOrProvince" node="element"/>
+		</field>
+		<field name="postalCode" type="java.lang.String">
+          <bind-xml name="PostalCode" node="element"/>
+		</field>
+		<field name="country" type="java.lang.String">
+          <bind-xml name="Country" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CommonContact">
+        <map-to xml="CommonContact"/>
+		<field name="contactType" type="java.lang.String">
+			<bind-xml name="ContactType" node="attribute"/>
+		</field>
+		<field name="contactName" type="java.lang.String">
+          <bind-xml name="ContactName" node="element"/>
+		</field>
+		<field name="phone" type="java.lang.String">
+          <bind-xml name="Telephone" node="element"/>
+		</field>
+		<field name="mobile" type="java.lang.String">
+          <bind-xml name="MobilePhone" node="element"/>
+		</field>
+		<field name="email" type="java.lang.String">
+          <bind-xml name="Email" node="element"/>
+		</field>  
+		<field name="fax" type="java.lang.String">
+          <bind-xml name="Fax" node="element"/>
+		</field>  
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceLineItem">
+		<map-to xml="InvoiceLineItem"/>
+		<field name="invoiceLineNo" type="java.lang.String">
+			<bind-xml name="InvoiceLineNumber" node="element"/>
+		</field>
+		<field name="poInfo" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POInformation">
+			<bind-xml name="PurchaseOrderInformation" node="element"/>
+		</field>
+		<field name="poLineNo" type="java.lang.String">
+			<bind-xml name="PurchaseOrderLineItemNumber" node="element"/>
+		</field>
+		<field name="product" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.Product">
+			<bind-xml name="Product" node="element"/>
+		</field>		
+		<field name="invLineQty" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.LineQuantity">
+			<bind-xml name="Quantity" node="element"/>
+		</field>
+		<field name="chargeInfo" collection="collection" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ChargeInfo">
+			<bind-xml name="ChargeInformation" node="element"/>
+		</field>		
+		<field name="lineComments" collection="collection" type="java.lang.String">
+			<bind-xml name="AdditionalText" node="element"/>
+		</field>
+   </class>
+<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POInformation">
+		<map-to xml="PurchaseOrderInformation"/>
+		<field name="poNumber" type="java.lang.String">
+			<bind-xml name="PurchaseOrderNumber" node="element"/>
+		</field>
+		<field name="poReleaseNumber" type="java.lang.String">
+			<bind-xml name="PurchaseOrderReleaseNumber" node="element"/>
+		</field>
+		<field name="poIssueDate" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POIssueDate">
+			<bind-xml name="PurchaseOrderIssuedDate" node="element"/>
+		</field>
+		<field name="poReference" collection="collection" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POReference">
+			<bind-xml name="PurchaseOrderReference" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POIssueDate">
+		<map-to xml="PurchaseOrderIssuedDate"/>
+		<field name="date" type="com.pearson.pixb2b.vendor.transaction.shared.dto.Date">
+			<bind-xml name="Date" node="element"/>
+		</field>
+		<field name="time" type="java.lang.String">
+			<bind-xml name="Time" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.Date">
+		<map-to xml="Date"/>
+		<field name="year" type="java.lang.String">
+			<bind-xml name="Year" node="element"/>
+		</field>
+		<field name="month" type="java.lang.String">
+			<bind-xml name="Month" node="element"/>
+		</field>
+		<field name="day" type="java.lang.String">
+			<bind-xml name="Day" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.POReference">
+	    <map-to xml="PurchaseOrderReference"/>
+		<field name="poReferenceType" type="java.lang.String">
+			<bind-xml name="PurchaseOrderReferenceType" node="attribute"/>
+		</field>
+		<field name="poReferenceValue" type="java.lang.String">
+			<bind-xml name="PurchaseOrderReferenceValue" node="text"/>
+		</field>
+   </class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.Product">
+		<map-to xml="Product"/>
+		 <field name="prodIdentifier" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.ProductIdentifier">
+			<bind-xml name="ProductIdentifier" node="element"/>
+		</field>
+		<field name="bookManufacturing" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookManufacturing">
+			<bind-xml name="BookManufacturing" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.ProductIdentifier">
+		<map-to xml="ProductIdentifier"/>
+		<field name="productAgency" type="java.lang.String">
+			<bind-xml name="Agency" node="attribute"/>
+		</field>
+		<field name="productIdType" type="java.lang.String">
+			<bind-xml name="ProductIdentifierType" node="attribute"/>
+		</field>
+		<field name="productIdValue" type="java.lang.String">
+			<bind-xml name="ProductIdentifierValue" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookManufacturing">
+		<map-to xml="BookManufacturing"/>
+		<field name="bookClassification" collection="collection" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookClassification">
+			<bind-xml name="BookClassification" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookClassification">
+		<map-to xml="BookClassification"/>
+		<field name="bookClassificationType" type="java.lang.String">
+			<bind-xml name="BookClassificationType" node="attribute"/>
+		</field>
+		<field name="bookSubClassification" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookSubClassification">
+			<bind-xml name="BookSubClassification" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.BookSubClassification">
+		<map-to xml="BookSubClassification"/>
+		<field name="bookSubClassificationType" type="java.lang.String">
+			<bind-xml name="BookSubClassificationType" node="attribute"/>
+		</field>				
+	</class>
+    <class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.LineQuantity">
+		<map-to xml="Quantity"/>
+		<field name="qtyType" type="java.lang.String">
+			<bind-xml name="QuantityType" node="attribute"/>
+		</field>
+		<field name="lineQtyValue" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.LineQtyValue">
+			<bind-xml name="Value" node="element"/>
+		</field>				 
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.LineQtyValue">
+		<map-to xml="Value"/>
+		<field name="UOM" type="java.lang.String">
+			<bind-xml name="UOM" node="attribute"/>
+		</field>	
+		<field name="qtyValue" type="java.lang.String">
+			<bind-xml name="QuantityValue" node="text"/>
+		</field>	 
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ChargeInfo">
+		<map-to xml="ChargeInformation"/>
+		<field name="costComp" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CostComponent">
+			<bind-xml name="CostComponent" node="element"/>
+		</field>
+		<field name="priceDetail" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PriceDetails">
+			<bind-xml name="PriceDetails" node="element"/>
+		</field>
+		<field name="qtyInfo" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.QuantityInfo">
+			<bind-xml name="QuantityInformation" node="element"/>
+		</field>
+		<field name="chrgAmnt" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ChargeAmount">
+			<bind-xml name="ChargeAmount" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CostComponent">
+		<map-to xml="CostComponent"/>
+		<field name="costComponentDesc" type="java.lang.String">
+			<bind-xml name="CostComponentDescription" node="element"/>
+		</field>			 
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PriceDetails">
+		<map-to xml="PriceDetails"/>
+		<field name="qtyBasis" type="java.lang.String">
+			<bind-xml name="PriceQuantityBasis" node="attribute"/>
+		</field>
+		<field name="ppunit" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PricePerUnit">
+			<bind-xml name="PricePerUnit" node="element"/>
+		</field>
+		<field name="additionalText" type="java.lang.String">
+			<bind-xml name="AdditionalText" node="element"/>
+		</field>
+		<field name="glAccount" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.GLAccount">
+			<bind-xml name="GeneralLedgerAccount" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PricePerUnit">
+		<map-to xml="PricePerUnit"/>
+		<field name="currency" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.Currency">
+			<bind-xml name="CurrencyValue" node="element"/>
+		</field>
+		<field name="ppuValue" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PPUValue">
+			<bind-xml name="Value" node="element"/>
+		</field>
+	</class>		
+	 <class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.Currency">
+		<map-to xml="CurrencyValue"/>
+		<field name="currencyType" type="java.lang.String">
+			<bind-xml name="CurrencyType" node="attribute"/>
+		</field>
+		<field name="currencyValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>		
+	 </class>
+     <class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.PPUValue">
+		<map-to xml="Value"/>
+		 <field name="ppUOM" type="java.lang.String">
+			<bind-xml name="UOM" node="attribute"/>
+		</field>
+		 <field name="ppValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>
+	</class> 
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.GLAccount">
+		<map-to xml="GLAccount"/>
+		<field name="glAgency" type="java.lang.String">
+			<bind-xml name="Agency" node="attribute"/>
+		</field>
+		<field name="glValue" type="java.lang.String">
+			<bind-xml name="GeneralLedgerAccountValue" node="text"/>
+		</field>
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.QuantityInfo">
+		<map-to xml="QuantityInformation"/>
+		<field name="qty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.Quantity">
+			<bind-xml name="Quantity" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.Quantity">
+		<map-to xml="Quantity"/>
+		 <field name="qtyType" type="java.lang.String">
+			<bind-xml name="QuantityType" node="attribute"/>
+		</field>
+		 <field name="valueQty" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ValueQty">
+			<bind-xml name="Value" node="element"/>
+		</field>
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ValueQty">
+		<map-to xml="Value"/>
+		 <field name="qtyUOM" type="java.lang.String">
+			<bind-xml name="UOM" node="attribute"/>
+		</field>
+		 <field name="valValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.ChargeAmount">
+		<map-to xml="ChargeAmount"/>
+		 <field name="currency" type="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CurrencyValue">
+			<bind-xml name="CurrencyValue" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.CurrencyValue">
+		<map-to xml="CurrencyValue"/>
+		 <field name="currType" type="java.lang.String">
+			<bind-xml name="CurrencyType" node="attribute"/>
+		</field>
+		 <field name="currValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.inbound.invoice.dto.InvoiceSummary">
+		<map-to xml="InvoiceSummary"/>		
+		<field name="totalNumberOfLineItems" type="java.lang.String">
+			<bind-xml name="TotalNumberOfLineItems" node="element"/>
+		</field>
+		<field name="totalQty" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.TotalQuantity">
+			<bind-xml name="TotalQuantity" node="element"/>
+		</field>
+		<field name="totalAmt" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.TotalAmount">
+			<bind-xml name="TotalAmount" node="element"/>
+		</field>		
+	</class>		
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.TotalQuantity">
+		<map-to xml="TotalQuantity"/>
+		 <field name="qtyType" type="java.lang.String">
+			<bind-xml name="QuantityType" node="attribute"/>
+		</field>
+		 <field name="valueQty" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.ValueQty">
+			<bind-xml name="Value" node="element"/>
+		</field>
+	</class>	
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.ValueQty">
+		<map-to xml="Value"/>
+		 <field name="qtyUOM" type="java.lang.String">
+			<bind-xml name="UOM" node="attribute"/>
+		</field>
+		 <field name="valValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.TotalAmount">
+		<map-to xml="TotalAmount"/>
+		 <field name="summCurrency" type="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.SummaryCurrency">
+			<bind-xml name="CurrencyValue" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.outbound.purchaseorder.dto.SummaryCurrency">
+		<map-to xml="CurrencyValue"/>
+		 <field name="scurrencyType" type="java.lang.String">
+			<bind-xml name="CurrencyType" node="attribute"/>
+		</field>
+		 <field name="scurrencyValue" type="java.lang.String">
+			<bind-xml name="Value" node="text"/>
+		</field>
+	</class>	
+</mapping>

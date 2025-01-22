@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+"http://castor.org/mapping.dtd">
+<!--
+# Author	  : Yogesh Tyagi
+# Company 	  : HCL Technologies
+# Description : castor mapping file for PIX B2B BusinessAcknowledgement Success/Failure XML
+-->
+<mapping>
+	<description>BusinessAcknowledgement Success/Failure XML mapping</description>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PapiNetEnvelopeDTO">
+		<map-to xml="papiNetEnvelope" ns-uri="http://www.papinet.org/env/v1r00" ns-prefix="pne"/>	
+		<field name="payloadInfo" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PayloadInfo">
+			<bind-xml name="PayloadInfo" node="element"/>
+		</field>
+		<field name="payload" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Payload">
+			<bind-xml name="Payload" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.PayloadInfo">
+		<map-to xml="PayloadInfo" ns-prefix="pne"/>	
+		<field name="testFlag" type="java.lang.String">
+			<bind-xml name="TestFlag" node="attribute"/>
+	    </field>
+		<field name="transmissionInfoList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionInfo">
+			<bind-xml name="TransmissionInfo" node="element"/>
+	    </field>
+		<field name="businessSender" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSender">
+			<bind-xml name="BusinessSender" node="element"/>
+	    </field>
+		<field name="businessReceiver" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiver">
+			<bind-xml name="BusinessReceiver" node="element"/>
+	    </field>
+		<field name="document" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Document">
+			<bind-xml name="Document" node="element"/>
+	    </field>
+		<field name="noOfAttachments" type="java.lang.String">
+			<bind-xml name="pne:NumberOfAttachments" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="schema" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Schema">
+			<bind-xml name="pne:Schema" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionInfo">
+		<map-to xml="TransmissionInfo" ns-prefix="pne"/>	
+        <field name="sequenceNumber" type="java.lang.String">
+			<bind-xml name="pne:SequenceNumber" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+        <field name="id" type="java.lang.String">
+			<bind-xml name="pne:ID" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+		<field name="timeStamp" type="java.lang.String">
+			<bind-xml name="pne:TimeStamp" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+		</field>
+		<field name="transmissionSender" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSender">
+			<bind-xml name="TransmissionSender" node="element"/>
+	    </field>
+		<field name="transmissionReceiver" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiver">
+			<bind-xml name="TransmissionReceiver" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSender">
+		<map-to xml="TransmissionSender" ns-prefix="pne"/>	
+		<field name="pIdTransmissionSenderList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSenderPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionSenderPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiver">
+		<map-to xml="TransmissionReceiver" ns-prefix="pne"/>	
+		<field name="pIdTransmissionReceiverList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiverPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.TransmissionReceiverPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSender">
+		<map-to xml="BusinessSender" ns-prefix="pne"/>	
+		<field name="pIdBusinessSenderList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSenderPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessSenderPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiver">
+		<map-to xml="BusinessReceiver" ns-prefix="pne"/>	
+		<field name="pIdBusinessReceiverList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiverPI">
+			<bind-xml name="PartyIdentifier" node="element"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessReceiverPI">
+		<map-to xml="PartyIdentifier" ns-prefix="pne"/>	
+		<field name="partyIdentifierType" type="java.lang.String">
+			<bind-xml name="PartyIdentifierType" node="attribute"/>
+	    </field>
+		<field name="partyIdentifierValue" type="java.lang.String">
+			<bind-xml name="PartyIdentifier" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Document">
+		<map-to xml="Document" ns-prefix="pne"/>	
+		<field name="documentName" type="java.lang.String">
+			<bind-xml name="DocumentName" node="attribute"/>
+	    </field>
+		<field name="documentNumber" type="java.lang.String">
+			<bind-xml name="pne:DocumentNumber" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="documentDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DocumentDate">
+			<bind-xml name="pne:DocumentDate" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DocumentDate">
+		<map-to xml="DocumentDate" ns-prefix="pne"/>	
+		<field name="date" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DateEnvelope">
+			<bind-xml name="Date" node="element"/>
+	    </field>
+		<field name="time" type="java.lang.String">
+			<bind-xml name="pne:Time" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.DateEnvelope">
+		<map-to xml="Date" ns-prefix="pne"/>	
+		<field name="year" type="java.lang.String">
+			<bind-xml name="pne:Year" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="month" type="java.lang.String">
+			<bind-xml name="pne:Month" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+		<field name="day" type="java.lang.String">
+			<bind-xml name="pne:Day" node="element" xmlns:pne="http://www.papinet.org/env/v1r00"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Schema">
+		<map-to xml="Schema" ns-prefix="pne"/>	
+        <field name="version" type="java.lang.String">
+			<bind-xml name="Version" node="attribute"/>
+		</field>
+        <field name="build" type="java.lang.String">
+			<bind-xml name="Build" node="attribute"/>
+		</field>
+		<field name="schemaVal" type="java.lang.String">
+			<bind-xml name="Schema" node="text"/>
+	    </field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.Payload">
+		<map-to xml="Payload" ns-prefix="pne"/>	
+        <field name="businessDocument" type="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessDocument">
+			<bind-xml name="BusinessDocument" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.envelope.BusinessDocument">
+		<map-to xml="BusinessDocument" ns-prefix="pne"/>	
+        <field name="baDTO" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAcknowledgementDTO">
+			<bind-xml name="BusinessAcknowledgement" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAcknowledgementDTO">
+		<map-to xml="BusinessAcknowledgement"/>
+		<field name="status" type="java.lang.String">
+			<bind-xml name="Status" node="attribute"/>
+		</field>
+		<field name="businessAckNumber" type="java.lang.String">
+			<bind-xml name="BusinessAcknowledgementNumber" node="element"/>
+		</field>
+		<field name="businessAckDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAckDate">
+			<bind-xml name="BusinessAcknowledgementDate" node="element"/>
+		</field>
+		<field name="document" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.Document">
+			<bind-xml name="Document" node="element"/>
+		</field>
+		<field name="documentErrorList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentError">
+			<bind-xml name="Error"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAckDate">
+		<map-to xml="BusinessAcknowledgementDate"/>
+		<field name="businessAckDateDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAckDateDate">
+			<bind-xml name="Date" node="element"/>
+		</field>
+		<field name="businessAckDateTime" type="java.lang.String">
+			<bind-xml name="Time" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.BusinessAckDateDate">
+		<map-to xml="Date"/>
+		<field name="businessAckDateYear" type="java.lang.String">
+			<bind-xml name="Year" node="element"/>
+		</field>
+		<field name="businessAckDateMonth" type="java.lang.String">
+			<bind-xml name="Month" node="element"/>
+		</field>
+		<field name="businessAckDateDay" type="java.lang.String">
+			<bind-xml name="Day" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.Document">
+		<map-to xml="Document"/>
+		<field name="documentName" type="java.lang.String">
+			<bind-xml name="DocumentName" node="attribute"/>
+		</field>
+		<field name="documentNumber" type="java.lang.String">
+			<bind-xml name="DocumentNumber" node="element"/>
+		</field>
+		<field name="documentDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentDate">
+			<bind-xml name="DocumentDate" node="element"/>
+		</field>
+		<field name="documentReferenceList" collection="collection" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentReference">
+			<bind-xml name="DocumentReference" node="element"/>
+		</field>		
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentDate">
+		<map-to xml="DocumentDate"/>
+		<field name="documentDateDate" type="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentDateDate">
+			<bind-xml name="Date" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentDateDate">
+		<map-to xml="Date"/>
+		<field name="documentDateYear" type="java.lang.String">
+			<bind-xml name="Year" node="element"/>
+		</field>
+		<field name="documentDateMonth" type="java.lang.String">
+			<bind-xml name="Month" node="element"/>
+		</field>
+		<field name="documentDateDay" type="java.lang.String">
+			<bind-xml name="Day" node="element"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentReference">
+		<map-to xml="DocumentReference"/>
+		<field name="documentReferenceType" type="java.lang.String">
+			<bind-xml name="DocumentReferenceType" node="attribute"/>
+		</field>
+		<field name="assignedBy" type="java.lang.String">
+			<bind-xml name="AssignedBy" node="attribute"/>
+		</field>
+		<field name="documentReferenceValue" type="java.lang.String">
+			<bind-xml name="DocumentReference" node="text"/>
+		</field>
+	</class>
+	<class name="com.pearson.pixb2b.vendor.transaction.shared.dto.businessack.DocumentError">
+		<map-to xml="Error"/>
+		<field name="errorCode" type="java.lang.String">
+			<bind-xml name="ErrorCode" node="element"/>
+		</field>
+		<field name="errorDescription" type="java.lang.String">
+			<bind-xml name="ErrorDescription" node="element"/>
+		</field>
+	</class>
+</mapping>

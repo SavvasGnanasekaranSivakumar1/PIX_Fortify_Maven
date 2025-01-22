@@ -1,0 +1,1 @@
+-ms128m -mx512m -DFILEPATH=D:\projects\b2b\config -DCONFIGFILE=D:\projects\b2b\config\b2b.config

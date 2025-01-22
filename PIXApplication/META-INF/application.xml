@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:application="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd"
+	version="1.4">
+	<display-name>PIXApplication</display-name>
+	<module id="myeclipse.1292225121522">
+		<web>
+			<web-uri>PIXApplicationWeb.war</web-uri>
+			<context-root>/pix</context-root>
+		</web>
+	</module>
+	<module id="myeclipse.1292225074786">
+		<ejb>PIXApplicationEJB.jar</ejb>
+	</module>
+	 <library-directory>lib</library-directory> 
+</application>

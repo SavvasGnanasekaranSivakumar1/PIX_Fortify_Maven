@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="v2r31_20081207">
+	<xs:annotation>
+		<xs:documentation>Copyright 2000-2009  papiNet G.I.E (papiNet), International Digital Enterprise Alliance, Inc. (IDEAlliance), and American Forest and Paper Association, Inc. (AFPA), collectively Copyright Owner. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign.  For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+	<xs:element name="Usage">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UsageHeader"/>
+				<xs:element ref="UsageLineItem" maxOccurs="unbounded"/>
+				<xs:element ref="UsageSummary" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="UsageStatusType" type="usageStatusType" use="required"/>
+			<xs:attribute name="Reissued" type="yesNo" default="No"/>
+			<xs:attribute name="Language" type="languageType" default="eng"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UsageHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UsageNumber"/>
+				<xs:element ref="UsageHeaderReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="UsageIssuedDate"/>
+				<xs:element ref="TransactionHistoryNumber" minOccurs="0"/>
+				<xs:element ref="TimePeriod" minOccurs="0"/>
+				<xs:element ref="EndUserParty"/>
+				<xs:element ref="SupplierParty" minOccurs="0"/>
+				<xs:element ref="BuyerParty"/>
+				<xs:element ref="OtherParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SenderParty" minOccurs="0"/>
+				<xs:element ref="ReceiverParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UsageLineItem">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="UsageLineItemNumber"/>
+				<xs:element ref="UsageReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LocationParty" minOccurs="0"/>
+				<xs:element ref="WasteQuantity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="WebBreaks" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:choice>
+					<xs:element ref="AggregatedUsageLineItem"/>
+					<xs:element ref="ItemisedUsageLineItem"/>
+				</xs:choice>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UsageSummary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TotalNumberOfLineItems" minOccurs="0"/>
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="TotalQuantity"/>
+					<xs:element ref="TotalInformationalQuantity" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:element ref="TermsAndDisclaimers" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="v2r31_20081207">
+	<xs:annotation>
+		<xs:documentation> Copyright 2000 – 2009 papiNet G.I.E (“papiNet”), International Digital Enterprise Alliance, Inc. (“IDEAlliance”), and American Forest and Paper Association, Inc. (“AFandPA”), collectively “Copyright Owner”. All rights reserved by the Copyright Owner under the laws of the United States, Belgium, the European Economic Community, and all states, domestic and foreign.  For support, more information, or to report implementation bugs, please contact papiNet at www.papiNet.org.	</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="papiNetCommonDefsV2R31.xsd"/>
+	<xs:element name="OrderStatus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderStatusHeader"/>
+				<xs:element ref="OrderStatusDetail" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="Language" type="languageType" default="eng"/>
+			<xs:attribute name="OrderStatusType" use="required">
+				<xs:simpleType>
+					<xs:restriction base="infoRequestDetailType">
+						<xs:enumeration value="ByProduct"/>
+						<xs:enumeration value="ByPurchaseOrder"/>
+						<xs:enumeration value="BySupplierOrderNumber"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderStatusHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OrderStatusNumber"/>
+				<xs:element ref="OrderStatusResponseDate"/>
+				<xs:element ref="RequestNumber" minOccurs="0"/>
+				<xs:element ref="RequestingParty" minOccurs="0"/>
+				<xs:element ref="RespondToParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="SenderParty" minOccurs="0"/>
+				<xs:element ref="ReceiverParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderStatusDetail">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PurchaseOrderInformation"/>
+				<xs:element ref="PurchaseOrderLineItemNumber"/>
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="SupplierOrderNumber"/>
+					<xs:element ref="SupplierOrderLineItemNumber" minOccurs="0"/>
+					<xs:element ref="LocationParty" minOccurs="0"/>
+				</xs:sequence>
+				<xs:element ref="Product"/>
+				<xs:element ref="SupplierParty" minOccurs="0"/>
+				<xs:element ref="BuyerParty" minOccurs="0"/>
+				<xs:element ref="ShipToParty" minOccurs="0"/>
+				<xs:element ref="EndUserParty" minOccurs="0"/>
+				<xs:element ref="ForwarderParty" minOccurs="0"/>
+				<xs:element ref="MerchantParty" minOccurs="0"/>
+				<xs:element ref="SalesOfficeParty" minOccurs="0"/>
+				<xs:element ref="LocationParty" minOccurs="0"/>
+				<xs:element ref="OtherParty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OrderStatusInformation" minOccurs="0"/>
+				<xs:element ref="Quantity" minOccurs="0"/>
+				<xs:element ref="InformationalQuantity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="LastDateOfChange" minOccurs="0"/>
+				<xs:element ref="DeliveryDateWindow" minOccurs="0"/>
+				<xs:element ref="OtherDate" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ShipmentDetails" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AdditionalText" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
